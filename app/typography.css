@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'SFImpact';
+    src: url('/assets/fonts/SF_Compact_Text_Regular.ttf') format('truetype');
+    font-weight: 400;
+    /* Regular */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFImpact';
+    src: url('/assets/fonts/SF_Compact_Text_Bold.ttf') format('truetype');
+    font-weight: 700;
+    /* Bold */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFImpact';
+    src: url('/assets/fonts/SF_Compact_Text_Semibold.ttf') format('truetype');
+    font-weight: 550;
+    /* Bold */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFImpact';
+    src: url('/assets/fonts/SF_Compact_Text_Light.ttf') format('truetype');
+    font-weight: 100;
+    /* Thin */
+    font-style: normal;
+}
+
+/* Add other variations as needed (e.g., Medium, Light, etc.) */
