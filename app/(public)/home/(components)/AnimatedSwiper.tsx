@@ -8,6 +8,7 @@ import { Autoplay } from 'swiper/modules'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
+import { Button } from '@/components/ui/button'
 
 const TOTAL_SLIDES = 9
 
@@ -84,15 +85,14 @@ export default function AnimatedSwiper() {
                                     <h3 className="font-sf-impact font-bold mb-4">
                                         Ken Carson X Chain
                                     </h3>
-                                    <GradientButton className="w-full font-sf-impact mb-2">
-                                        <span>Purchase for $1.00</span>
+                                    <GradientButton className="w-full font-sf-impact font-semibold mb-2">
+                                        <span>🛒 Purchase for $1.00</span>
                                     </GradientButton>
-                                    <GradientButton
-                                        variant="secondary"
-                                        className="w-full font-sf-impact inner-shadow-2"
+                                    <Button
+                                        className="w-full bg-[#1E1E1E] h-button border border-[#323232] rounded-[12px] font-sf-impact inner-shadow-2"
                                     >
                                         <span>View details</span>
-                                    </GradientButton>
+                                    </Button>
                                 </div>
                             </div>
                         </div>

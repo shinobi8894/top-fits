@@ -3,6 +3,7 @@
 import Loader from "@/components/custom/loader";
 import Header from "@/components/layout/header";
 import { useEffect, useState } from "react";
+import { ReactLenis } from 'lenis/react'
 
 export default function PublicLayout({
     children,
@@ -34,11 +35,17 @@ export default function PublicLayout({
     }
 
     return (
-        <>
+        <ReactLenis
+            root
+            options={{
+                duration: 2.5,
+                touchMultiplier: 2,
+            }}
+        >
             <Header />
             {
                 children
             }
-        </>
+        </ReactLenis>
     )
 }

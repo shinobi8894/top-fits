@@ -31,7 +31,7 @@ export default function CTAButtons() {
             <div className='w-full flex justify-center'>
                 <div className='relative w-full max-w-[500px]'>
                     <GradientButton
-                        className="w-full rounded-full inner-shadow font-sf-impact font-semibold mb-5"
+                        className="w-full !h-[60px] rounded-full inner-shadow font-sf-impact font-semibold mb-5"
                     >
                         <span>Register on TopFits</span>
                         <ArrowRight className="-rotate-45" />
@@ -48,13 +48,13 @@ export default function CTAButtons() {
 
             <div className="flex flex-row w-full max-w-[500px] gap-3">
                 <Button
-                    className="cursor-pointer text-primary hover:!text-white flex bg-transparent border border-primary rounded-full h-button font-sf-impact flex-1"
+                    className="!h-[60px] cursor-pointer text-primary hover:!text-white flex bg-transparent border border-primary rounded-full h-button font-sf-impact flex-1"
                 >
                     <span className="text-white">To SpreadSheets</span>
                     <ArrowRight />
                 </Button>
                 <Button
-                    className="cursor-pointer flex bg-transparent border border-primary rounded-full h-button font-sf-impact flex-1 text-primary hover:!text-white"
+                    className="!h-[60px] cursor-pointer flex bg-transparent border border-primary rounded-full h-button font-sf-impact flex-1 text-primary hover:!text-white"
                 >
                     <span className="text-white">Join Discord</span>
                     <ArrowRight />

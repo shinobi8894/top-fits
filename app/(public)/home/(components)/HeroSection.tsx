@@ -46,7 +46,7 @@ export default function HeroSection() {
       <div ref={avatarTextRef} className="flex flex-row items-center gap-4 mb-4">
         <AvatarGroup />
         <div className="font-sf-impact flex flex-row items-center gap-2 text-sm">
-          <p className="text-[#888888]">
+          <p className="text-[#888888] font-semibold">
             Join 250+ Satisfied Customers.
             <span className="text-primary"> Read more</span>
           </p>
