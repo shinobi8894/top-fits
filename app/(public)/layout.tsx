@@ -14,7 +14,7 @@ export default function PublicLayout({
         const hideLoader = () => {
             setTimeout(() => {
                 setIsLoading(false);
-            }, 1000); // Wait 2 seconds after load
+            }, 2500); // Wait 2 seconds after load
         };
 
         if (document.readyState === 'complete') {

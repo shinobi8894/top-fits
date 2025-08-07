@@ -24,7 +24,7 @@ export default function ActionButtons() {
                 className="!pl-6 overflow-hidden"
             >
                 <span>Click here</span>
-                <div className="h-full w-[50px] flex flex-row items-center ml-6 justify-center bg-gradient-to-b from-[#FF7925] to-[#FFD460] inner-shadow">
+                <div className="h-full text-black w-[50px] flex flex-row items-center ml-6 justify-center bg-gradient-to-b from-[#FF7925] to-[#FFD460] inner-shadow">
                     <ArrowRight />
                 </div>
             </GradientButton>
