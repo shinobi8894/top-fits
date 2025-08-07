@@ -10,19 +10,21 @@ import Loader from '@/components/custom/loader'
 export default function HomePage() {
 
     const [isLoading, setIsLoading] = useState(true)
-
     useEffect(() => {
-        const handleLoad = () => setIsLoading(false)
+        const hideLoader = () => {
+            setTimeout(() => {
+                setIsLoading(false);
+            }, 2000); // Wait 2 seconds after load
+        };
 
-        // If already loaded (e.g. from cache), remove loader immediately
         if (document.readyState === 'complete') {
-            setIsLoading(false)
+            hideLoader();
         } else {
-            window.addEventListener('load', handleLoad)
+            window.addEventListener('load', hideLoader);
         }
 
-        return () => window.removeEventListener('load', handleLoad)
-    }, [])
+        return () => window.removeEventListener('load', hideLoader);
+    }, []);
 
     if (isLoading) {
         return (
@@ -43,7 +45,7 @@ export default function HomePage() {
                 <div className='absolute top-0'>
                     <svg width="1920" height="1331" viewBox="0 0 1920 1331" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g filter="url(#filter0_f_1_224)">
-                            <ellipse cx="951" cy="1790.5" rx="1022" ry="818.5" fill="#FFA13F" fill-opacity="0.5" />
+                            <ellipse cx="951" cy="1790.5" rx="1022" ry="818.5" fill="#FFA13F" fillOpacity="0.5" />
                         </g>
                         <defs>
                             <filter id="filter0_f_1_224" x="-1150.82" y="-107.815" width="4203.63" height="3796.63" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">

@@ -57,6 +57,7 @@ export default function AnimatedSwiper() {
       }}
       onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
       onInit={(swiper) => setActiveIndex(swiper.realIndex)}
+      className='mb-20'
     >
       {[...Array(TOTAL_SLIDES)].map((_, index) => {
         const dimmed = isDimmed(index)
