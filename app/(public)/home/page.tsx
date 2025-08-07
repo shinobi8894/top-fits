@@ -23,7 +23,7 @@ export default function HomePage() {
                         </g>
                         <defs>
                             <filter id="filter0_f_1_224" x="-1150.82" y="-107.815" width="4203.63" height="3796.63" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                                 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
                                 <feGaussianBlur stdDeviation="539.908" result="effect1_foregroundBlur_1_224" />
                             </filter>

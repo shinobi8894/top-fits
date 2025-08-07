@@ -5,12 +5,12 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import gsap from 'gsap'
 
 const avatarData = [
-  { src: 'https://github.com/shadcn.png', top: '20%', left: '18%' },
-  { src: 'https://github.com/leerob.png', top: '45%', left: '5%' },
-  { src: 'https://github.com/evilrabbit.png', top: '70%', left: '15%' },
-  { src: 'https://github.com/shadcn.png', top: '25%', right: '18%' },
-  { src: 'https://github.com/leerob.png', top: '50%', right: '5%' },
-  { src: 'https://github.com/evilrabbit.png', top: '75%', right: '17%' },
+  { src: 'https://github.com/shadcn.png', top: '20%', left: '18%', width: 100, height: 100, opacity: 0.5 },
+  { src: 'https://github.com/leerob.png', top: '45%', left: '5%', width: 70, height: 70, opacity: 0.5 },
+  { src: 'https://github.com/evilrabbit.png', top: '70%', left: '15%', width: 150, height: 150, opacity: 1 },
+  { src: 'https://github.com/shadcn.png', top: '25%', right: '18%', width: 100, height: 100, opacity: 0.5 },
+  { src: 'https://github.com/leerob.png', top: '50%', right: '5%', width: 70, height: 70, opacity: 1 },
+  { src: 'https://github.com/evilrabbit.png', top: '75%', right: '17%', width: 150, height: 150, opacity: 0.5 },
 ]
 
 export default function FloatingAvatarGroup() {
@@ -50,16 +50,22 @@ export default function FloatingAvatarGroup() {
       {avatarData.map((avatar, index) => (
         <div
           key={index}
-          ref={(el:any) => (avatarRefs.current[index] = el)}
-          className="absolute w-[100px] h-[100px] flex justify-center items-center opacity-50"
+          ref={(el: any) => (avatarRefs.current[index] = el)}
+          className="absolute flex justify-center items-center"
           style={{
             top: avatar.top,
             left: avatar.left,
             right: avatar.right,
+            width: avatar.width,
+            height: avatar.height,
+            opacity: avatar.opacity
           }}
         >
-          <div className="bg-primary w-full h-full absolute rounded-full opacity-50" />
-          <Avatar className="w-[80px] h-[80px]">
+          <div className="bg-primary w-full h-full absolute rounded-full opacity-50"/>
+          <Avatar style={{
+            width: (avatar.width - 20),
+            height: avatar.height - 20
+          }}>
             <AvatarImage src={avatar.src} alt="user" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>

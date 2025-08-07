@@ -69,7 +69,7 @@ export default function AnimatedSwiper() {
                         <div className={`py-10 ${centered ? 'px-3' : ''}`}>
                             <div
                                 className={`bg-gradient-to-b from-[#1D1D1D] to-[#161616] rounded-[32px] p-7 transition-all duration-300 ease-in-out 
-                  ${centered ? 'scale-110 z-[2]' : 'scale-100'}
+                  ${centered ? 'scale-110' : 'scale-100'}
                   ${dimmed ? 'opacity-50' : 'opacity-100'}`}
                             >
                                 <div className="bg-gradient-to-b flex flex-col items-center from-[#3D3D3D] to-[#161616] rounded-[32px] p-7 inner-shadow-2">
@@ -89,7 +89,7 @@ export default function AnimatedSwiper() {
                                         <span>🛒 Purchase for $1.00</span>
                                     </GradientButton>
                                     <Button
-                                        className="w-full bg-[#1E1E1E] h-button border border-[#323232] rounded-[12px] font-sf-impact inner-shadow-2"
+                                        className="w-full cursor-pointer bg-[#1E1E1E] h-button border border-[#323232] rounded-[12px] font-sf-impact inner-shadow-2"
                                     >
                                         <span>View details</span>
                                     </Button>
