@@ -77,6 +77,7 @@ export default function AnimatedSwiper() {
                     alt="item"
                     width={200}
                     height={270}
+                    className='mb-5'
                   />
                   <h3 className="font-sf-impact font-bold mb-4">
                     Ken Carson X Chain

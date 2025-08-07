@@ -4,34 +4,8 @@ import HeroSection from './(components)/HeroSection'
 import CTAButtons from './(components)/CTAButtons'
 import AnimatedSwiper from './(components)/AnimatedSwiper'
 import FloatingAvatarGroup from './(components)/FloatingAvatarGroup'
-import { useEffect, useState } from 'react'
-import Loader from '@/components/custom/loader'
 
 export default function HomePage() {
-
-    const [isLoading, setIsLoading] = useState(true)
-    useEffect(() => {
-        const hideLoader = () => {
-            setTimeout(() => {
-                setIsLoading(false);
-            }, 2000); // Wait 2 seconds after load
-        };
-
-        if (document.readyState === 'complete') {
-            hideLoader();
-        } else {
-            window.addEventListener('load', hideLoader);
-        }
-
-        return () => window.removeEventListener('load', hideLoader);
-    }, []);
-
-    if (isLoading) {
-        return (
-            <Loader />
-        )
-
-    }
 
     return (
         <main className="relative bg-background text-white flex flex-col max-w-full overflow-hidden">
