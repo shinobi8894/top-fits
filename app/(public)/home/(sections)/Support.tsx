@@ -59,7 +59,7 @@ export default function SupportSection() {
     }, [])
 
     return (
-        <div className="w-full flex justify-center px-6 lg:px-20">
+        <div className="w-full flex justify-center px-6 lg:px-20 mb-20">
             <div className="flex flex-col lg:flex-row items-center justify-between max-w-[1920px] gap-10 w-full">
                 {/* Left Content */}
                 <div className="flex flex-col max-w-[670px] w-full relative">
