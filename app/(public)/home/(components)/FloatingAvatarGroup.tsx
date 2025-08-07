@@ -3,15 +3,7 @@
 import { useEffect, useRef } from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import gsap from 'gsap'
-
-const avatarData = [
-  { src: 'https://github.com/shadcn.png', top: '20%', left: '18%', width: 100, height: 100, opacity: 0.5 },
-  { src: 'https://github.com/leerob.png', top: '45%', left: '5%', width: 70, height: 70, opacity: 0.5 },
-  { src: 'https://github.com/evilrabbit.png', top: '70%', left: '15%', width: 150, height: 150, opacity: 1 },
-  { src: 'https://github.com/shadcn.png', top: '25%', right: '18%', width: 100, height: 100, opacity: 0.5 },
-  { src: 'https://github.com/leerob.png', top: '50%', right: '5%', width: 70, height: 70, opacity: 1 },
-  { src: 'https://github.com/evilrabbit.png', top: '75%', right: '17%', width: 150, height: 150, opacity: 0.5 },
-]
+import { AVATAR_DATA } from '@/constants/avatar'
 
 export default function FloatingAvatarGroup() {
   const avatarRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -47,7 +39,7 @@ export default function FloatingAvatarGroup() {
 
   return (
     <div className="absolute inset-0 pointer-events-none z-0">
-      {avatarData.map((avatar, index) => (
+      {AVATAR_DATA.map((avatar, index) => (
         <div
           key={index}
           ref={(el: any) => (avatarRefs.current[index] = el)}
@@ -61,7 +53,7 @@ export default function FloatingAvatarGroup() {
             opacity: avatar.opacity
           }}
         >
-          <div className="bg-primary w-full h-full absolute rounded-full opacity-50"/>
+          <div className="bg-primary w-full h-full absolute rounded-full opacity-50" />
           <Avatar style={{
             width: (avatar.width - 20),
             height: avatar.height - 20

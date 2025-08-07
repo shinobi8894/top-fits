@@ -3,49 +3,53 @@
 import Loader from "@/components/custom/loader";
 import Header from "@/components/layout/header";
 import { useEffect, useState } from "react";
-import { ReactLenis } from 'lenis/react'
+import { ReactLenis } from "lenis/react";
 
 export default function PublicLayout({
     children,
-}: Readonly<{
-    children: React.ReactNode;
-}>) {
-    const [isLoading, setIsLoading] = useState(true)
+}: Readonly<{ children: React.ReactNode }>) {
+    const [isLoading, setIsLoading] = useState(true);  // Controls when content appears
+    const [showLoader, setShowLoader] = useState(true); // Controls loader DOM
+
     useEffect(() => {
-        const hideLoader = () => {
+        // Disable scrolling while loader is visible
+        document.body.style.overflow = "hidden";
+
+        const onPageLoad = () => {
             setTimeout(() => {
-                setIsLoading(false);
-            }, 2500); // Wait 2 seconds after load
+                setIsLoading(false); // Content will be visible
+            }, 2000); // Wait 2s after load
         };
 
-        if (document.readyState === 'complete') {
-            hideLoader();
+        if (document.readyState === "complete") {
+            onPageLoad();
         } else {
-            window.addEventListener('load', hideLoader);
+            window.addEventListener("load", onPageLoad);
         }
 
-        return () => window.removeEventListener('load', hideLoader);
+        return () => window.removeEventListener("load", onPageLoad);
     }, []);
 
-    if (isLoading) {
-        return (
-            <Loader />
-        )
-
-    }
+    // Once loader finishes animation → enable scrolling
+    const handleLoaderFinish = () => {
+        setShowLoader(false);
+        document.body.style.overflow = "auto";
+    };
 
     return (
-        <ReactLenis
-            root
-            options={{
-                duration: 2.5,
-                touchMultiplier: 2,
-            }}
-        >
-            <Header />
-            {
-                children
-            }
-        </ReactLenis>
-    )
+        <>
+            {showLoader && <Loader onFinish={handleLoaderFinish} />}
+
+            <ReactLenis
+                root
+                options={{
+                    duration: 2.5,
+                    touchMultiplier: 2,
+                }}
+            >
+                <Header />
+                {isLoading ? null : children}
+            </ReactLenis>
+        </>
+    );
 }

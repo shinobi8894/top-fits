@@ -2,12 +2,12 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import Logo from "../logo";
 
-export default function Loader() {
+export default function Loader({ onFinish }: { onFinish: () => void }) {
     const logoRef = useRef(null);
-    const textRef = useRef(null);
+    const wrapperRef = useRef(null);
 
     useEffect(() => {
-        // Animate the logo (pulse and rotate slightly)
+        // Logo pulse animation
         gsap.fromTo(
             logoRef.current,
             { scale: 1, opacity: 0 },
@@ -22,8 +22,32 @@ export default function Loader() {
         );
     }, []);
 
+    // Listen for page load complete and fade out
+    useEffect(() => {
+        const handleFadeOut = () => {
+            gsap.to(wrapperRef.current, {
+                opacity: 0,
+                duration: 1,
+                ease: "power2.inOut",
+                onComplete: onFinish,
+            });
+        };
+
+        // Wait until page is loaded before fading
+        if (document.readyState === "complete") {
+            setTimeout(handleFadeOut, 2000); // 2s delay after load
+        } else {
+            window.addEventListener("load", () => {
+                setTimeout(handleFadeOut, 2000);
+            });
+        }
+    }, [onFinish]);
+
     return (
-        <div className="fixed inset-0 z-50 bg-black flex flex-col gap-6 items-center justify-center">
+        <div
+            ref={wrapperRef}
+            className="fixed inset-0 z-50 bg-black flex flex-col gap-6 items-center justify-center"
+        >
             <div ref={logoRef}>
                 <Logo />
             </div>

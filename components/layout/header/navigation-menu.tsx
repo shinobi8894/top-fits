@@ -12,8 +12,8 @@ export default function NavigationMenu() {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger className="cursor-pointer flex flex-row items-center">
-                <span className="font-sf-impact text-[#888888]">Browse</span>
-                <ChevronDown className="text-[#888888]" />
+                <span className="font-sf-impact text-gray">Browse</span>
+                <ChevronDown className="text-gray" />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="font-sf-impact">
                 <DropdownMenuLabel className="cursor-pointer">My Account</DropdownMenuLabel>

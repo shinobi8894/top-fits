@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function HeroSection() {
+export default function HeroData() {
   const containerRef = useRef<HTMLDivElement>(null)
   const avatarTextRef = useRef<HTMLDivElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
@@ -46,7 +46,7 @@ export default function HeroSection() {
       <div ref={avatarTextRef} className="flex flex-row items-center gap-4 mb-4">
         <AvatarGroup />
         <div className="font-sf-impact flex flex-row items-center gap-2 text-sm">
-          <p className="text-[#888888] font-semibold">
+          <p className="text-gray font-semibold">
             Join 250+ Satisfied Customers.
             <span className="text-primary"> Read more</span>
           </p>
@@ -58,12 +58,12 @@ export default function HeroSection() {
         ref={headingRef}
         className="uppercase font-oswald text-6xl font-bold max-w-[720px] text-center leading-20 mb-4"
       >
-        The fastest way to source top-selling <span className="text-primary">jackets</span>
+        The fastest way to source top-selling <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#DC9B39] to-[#FFC670] relative inline-block">jackets</span>
       </h1>
 
       <p
         ref={paragraphRef}
-        className="text-[#888888] font-sf-impact max-w-[610px] text-center text-2xl mb-8"
+        className="text-gray font-sf-impact max-w-[610px] text-center text-2xl mb-8"
       >
         TopFits helps eCommerce businesses discover, source, and scale with high-converting fashion products
       </p>

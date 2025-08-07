@@ -50,13 +50,13 @@ export default function CTAButtons() {
                 <Button
                     className="!h-[60px] cursor-pointer text-primary hover:!text-white flex bg-transparent border border-primary rounded-full h-button font-sf-impact flex-1"
                 >
-                    <span className="text-white">To SpreadSheets</span>
+                    <span className="text-white font-semibold">To SpreadSheets</span>
                     <ArrowRight />
                 </Button>
                 <Button
                     className="!h-[60px] cursor-pointer flex bg-transparent border border-primary rounded-full h-button font-sf-impact flex-1 text-primary hover:!text-white"
                 >
-                    <span className="text-white">Join Discord</span>
+                    <span className="text-white font-semibold">Join Discord</span>
                     <ArrowRight />
                 </Button>
             </div>
