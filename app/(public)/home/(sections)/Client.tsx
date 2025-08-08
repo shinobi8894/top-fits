@@ -110,7 +110,7 @@ export default function ClientSection() {
   }, []);
 
   return (
-    <div
+    <section
       ref={sectionRef}
       className="p-20 bg-gradient-to-b from-[#0C0C0C] to-[#101010]"
     >
@@ -119,6 +119,6 @@ export default function ClientSection() {
           <TestimonialCard key={index} {...testimonial} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }

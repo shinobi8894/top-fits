@@ -59,7 +59,7 @@ export default function SupportSection() {
     }, [])
 
     return (
-        <div className="w-full flex justify-center px-6 lg:px-20 mb-20">
+        <section className="w-full py-20 bg-gradient-to-b from-[#0C0C0C] to-[#010101] flex justify-center px-6 lg:px-20 mb-20">
             <div className="flex flex-col lg:flex-row items-center justify-between max-w-[1920px] gap-10 w-full">
                 {/* Left Content */}
                 <div className="flex flex-col max-w-[670px] w-full relative">
@@ -118,6 +118,6 @@ export default function SupportSection() {
                     <Image src="/assets/imgs/chat.png" alt="chat" width={900} height={710} />
                 </div>
             </div>
-        </div>
+        </section>
     )
 }

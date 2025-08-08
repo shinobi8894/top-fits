@@ -49,3 +49,26 @@ export const STEP_DATA = [
         rounded: { tr: true, br: true, noLeft: true }
     }
 ]
+
+
+
+export const GUIDE_STEPS = [
+    {
+        step: 'STEP ONE',
+        title: 'Search for an item',
+        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet sapien et justo ullamcorper malesuada. Vivamus rhoncus, lacus sed feugiat scelerisque, libero sapien sagittis',
+        img: '/assets/imgs/search-item.png',
+    },
+    {
+        step: 'STEP TWO',
+        title: 'Head to supplier',
+        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet sapien et justo ullamcorper malesuada. Vivamus rhoncus, lacus sed feugiat scelerisque, libero sapien sagittis',
+        img: '/assets/imgs/supplier.png',
+    },
+    {
+        step: 'STEP THREE',
+        title: 'Purchase and enjoy!',
+        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet sapien et justo ullamcorper malesuada. Vivamus rhoncus, lacus sed feugiat scelerisque, libero sapien sagittis',
+        img: '/assets/imgs/purchase.png',
+    },
+]
