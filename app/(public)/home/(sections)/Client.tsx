@@ -59,8 +59,48 @@ function TestimonialCard({
   rating,
   text,
 }: typeof TESTIMONIALS_DATA[0]) {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const cardEl = cardRef.current;
+    if (!cardEl) return;
+
+    const onEnter = () => {
+      gsap.to(cardEl, {
+        scale: 1.03,
+        rotateY: 3,
+        rotateX: -3,
+        boxShadow: '0 12px 30px rgba(0,0,0,0.3)',
+        duration: 0.3,
+        ease: 'power2.out',
+      });
+    };
+
+    const onLeave = () => {
+      gsap.to(cardEl, {
+        scale: 1,
+        rotateY: 0,
+        rotateX: 0,
+        boxShadow: '0 0 0 rgba(0,0,0,0)',
+        duration: 0.3,
+        ease: 'power2.inOut',
+      });
+    };
+
+    cardEl.addEventListener('mouseenter', onEnter);
+    cardEl.addEventListener('mouseleave', onLeave);
+
+    return () => {
+      cardEl.removeEventListener('mouseenter', onEnter);
+      cardEl.removeEventListener('mouseleave', onLeave);
+    };
+  }, []);
+
   return (
-    <div className="testimonial-card bg-[#191919] p-8 rounded-[10px] opacity-0 translate-y-10">
+    <div
+      ref={cardRef}
+      className="testimonial-card group bg-[#191919] p-8 rounded-[10px] opacity-0 translate-y-10 cursor-pointer transform-gpu"
+    >
       <div className="flex flex-row justify-between items-center w-full mb-7">
         <div className="flex flex-row items-center gap-3">
           <Avatar className="w-[60px] h-[60px]">
@@ -74,13 +114,17 @@ function TestimonialCard({
         </div>
         <div className="bg-[#363533] p-2 rounded-[5px] grid grid-cols-5 gap-1.5">
           {Array.from({ length: rating }).map((_, i) => (
-            <StarIcon key={i} />
+            <div key={i} className="star-icon">
+              <StarIcon />
+            </div>
           ))}
         </div>
       </div>
       <p className="text-gray mb-4">{text}</p>
-      <div className="flex w-full justify-end">
+      <div className="flex w-full justify-end quote-icon">
+        <div className='group-hover:rotate-15 transition duration-500'>
         <QuoteIcon />
+        </div>
       </div>
     </div>
   );
@@ -90,23 +134,32 @@ export default function ClientSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const cards = gsap.utils.toArray('.testimonial-card');
+    const cards = gsap.utils.toArray<HTMLElement>('.testimonial-card');
 
-    gsap.fromTo(
-      cards,
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.2,
-        duration: 0.8,
-        ease: 'power3.out',
+    cards.forEach((card) => {
+      const stars = card.querySelectorAll('.star-icon');
+
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-        },
-      }
-    );
+          trigger: card,
+          start: 'top 85%',
+        }
+      });
+
+      // Card fade/slide in
+      tl.fromTo(card,
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }
+      );
+
+      // Stars pop in
+      tl.fromTo(stars,
+        { scale: 0, rotation: -180 },
+        { scale: 1, rotation: 0, stagger: 0.05, ease: 'back.out(2)' },
+        '-=0.4'
+      );
+
+    });
   }, []);
 
   return (
