@@ -28,3 +28,4 @@ export const ADVANTAGE_CARDS_DATA = [
         description: 'Lorem ipsum dolor sit amet. Aliquet urna arcu orci ac.',
     },
 ];
+

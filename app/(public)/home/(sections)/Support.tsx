@@ -93,7 +93,7 @@ export default function SupportSection() {
                         </span>
                     </h1>
 
-                    <p ref={descRef} className="text-gray mb-8">
+                    <p ref={descRef} className="text-gray mb-8 text-2xl">
                         We provide dedicated customer support exactly when you need it most, ensuring every query, question, or concern is addressed promptly and thoroughly. Our team is committed to delivering clear, helpful solutions, so you’re never left waiting.
                     </p>
 
