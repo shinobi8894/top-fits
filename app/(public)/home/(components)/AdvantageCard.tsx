@@ -18,7 +18,7 @@ export default function AdvantageCard({
     description,
 }: AdvantageCardProps) {
     return (
-        <div className="relative group cursor-pointer">
+        <div className="relative group cursor-pointer w-full">
             <div className="font-sf-impact flex flex-col items-center py-20 bg-background z-20 relative">
                 <div className='w-full max-w-[410px] h-[370px] flex justify-center items-center'>
                     <Image src={imgSrc} alt={imgAlt} width={410} height={350} />
