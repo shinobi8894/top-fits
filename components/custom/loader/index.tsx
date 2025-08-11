@@ -5,6 +5,7 @@ import Logo from "../logo";
 export default function Loader({ onFinish }: { onFinish: () => void }) {
     const logoRef = useRef(null);
     const wrapperRef = useRef(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
 
     useEffect(() => {
         // Logo pulse animation
@@ -22,7 +23,6 @@ export default function Loader({ onFinish }: { onFinish: () => void }) {
         );
     }, []);
 
-    // Listen for page load complete and fade out
     useEffect(() => {
         const handleFadeOut = () => {
             gsap.to(wrapperRef.current, {
@@ -33,9 +33,8 @@ export default function Loader({ onFinish }: { onFinish: () => void }) {
             });
         };
 
-        // Wait until page is loaded before fading
         if (document.readyState === "complete") {
-            setTimeout(handleFadeOut, 2000); // 2s delay after load
+            setTimeout(handleFadeOut, 2000);
         } else {
             window.addEventListener("load", () => {
                 setTimeout(handleFadeOut, 2000);
@@ -48,8 +47,16 @@ export default function Loader({ onFinish }: { onFinish: () => void }) {
             ref={wrapperRef}
             className="fixed inset-0 z-50 bg-black flex flex-col gap-6 items-center justify-center"
         >
-            <div ref={logoRef}>
-                <Logo />
+            {/* Video container */}
+            <div className="relative w-[300px] h-[300px] overflow-hidden rounded-lg shadow-lg">
+                <video
+                    ref={videoRef}
+                    className="w-full h-full object-cover"
+                    src="/assets/vids/loader.mp4"
+                    autoPlay
+                    muted
+                    playsInline
+                />
             </div>
         </div>
     );

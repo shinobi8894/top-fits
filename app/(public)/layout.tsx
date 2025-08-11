@@ -8,17 +8,16 @@ import { ReactLenis } from "lenis/react";
 export default function PublicLayout({
     children,
 }: Readonly<{ children: React.ReactNode }>) {
-    const [isLoading, setIsLoading] = useState(true);  // Controls when content appears
-    const [showLoader, setShowLoader] = useState(true); // Controls loader DOM
+    const [isLoading, setIsLoading] = useState(true);
+    const [showLoader, setShowLoader] = useState(true);
 
     useEffect(() => {
-        // Disable scrolling while loader is visible
         document.body.style.overflow = "hidden";
 
         const onPageLoad = () => {
             setTimeout(() => {
-                setIsLoading(false); // Content will be visible
-            }, 2000); // Wait 2s after load
+                setIsLoading(false);
+            }, 2000);
         };
 
         if (document.readyState === "complete") {
@@ -30,7 +29,6 @@ export default function PublicLayout({
         return () => window.removeEventListener("load", onPageLoad);
     }, []);
 
-    // Once loader finishes animation → enable scrolling
     const handleLoaderFinish = () => {
         setShowLoader(false);
         document.body.style.overflow = "auto";
@@ -47,7 +45,8 @@ export default function PublicLayout({
                     touchMultiplier: 2,
                 }}
             >
-                <Header />
+                {/* Pass trigger to header */}
+                <Header animateIn={!isLoading && !showLoader} />
                 {isLoading ? null : children}
             </ReactLenis>
         </>

@@ -12,8 +12,8 @@ export default function HeroSection() {
                 <FloatingAvatarGroup />
             </div>
             <AnimatedSwiper />
-            <div className='absolute top-0'>
-                <svg width="1920" height="1331" viewBox="0 0 1920 1331" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className='absolute top-0 w-full'>
+                <svg className="w-full" viewBox="0 0 1920 1331" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_f_1_224)">
                         <ellipse cx="951" cy="1790.5" rx="1022" ry="818.5" fill="#FFA13F" fillOpacity="0.5" />
                     </g>

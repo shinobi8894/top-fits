@@ -6,6 +6,12 @@ import HeroSection from './(sections)/Hero'
 import SupportSection from './(sections)/Support'
 import StepSection from './(sections)/Step'
 import GuideSteps from './(sections)/Guide'
+import GradientButton from '@/components/custom/gradient-button'
+import { ArrowRight } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import Image from 'next/image'
+import CTASection from './(sections)/CTA'
+import GoodbyeSlider from './(sections)/Goodbye'
 
 export default function HomePage() {
     return (
@@ -16,6 +22,8 @@ export default function HomePage() {
             <ClientSection />
             <StepSection />
             <GuideSteps />
+            <CTASection/>
+            <GoodbyeSlider/>
         </main>
     )
 }

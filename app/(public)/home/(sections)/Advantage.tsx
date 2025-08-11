@@ -58,7 +58,7 @@ export default function AdvantageSection() {
     }, []);
 
     return (
-        <section className="w-full flex flex-col items-center justify-center !bg-background relative z-20 py-20">
+        <section className="w-full flex flex-col items-center justify-center !bg-background relative z-20 pt-20">
             <h1
                 ref={titleRef}
                 className="uppercase font-oswald text-6xl font-bold max-w-[650px] text-center leading-20 mb-4 opacity-0"

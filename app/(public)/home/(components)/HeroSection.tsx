@@ -4,38 +4,35 @@ import { useEffect, useRef } from 'react'
 import { ArrowRight } from 'lucide-react'
 import AvatarGroup from './AvatarGroup'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export default function HeroData() {
   const containerRef = useRef<HTMLDivElement>(null)
   const avatarTextRef = useRef<HTMLDivElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
   const paragraphRef = useRef<HTMLParagraphElement>(null)
-  const avatarGroupRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (!containerRef.current) return
 
     const ctx = gsap.context(() => {
-      gsap.set([avatarTextRef.current, headingRef.current, paragraphRef.current, avatarGroupRef.current?.children], {
-        opacity: 0,
-        y: 30,
-      })
+      const elements = [
+        avatarTextRef.current,
+        headingRef.current,
+        paragraphRef.current
+      ]
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 80%',
-          once: true,
-        },
-        defaults: { duration: 0.8, ease: 'power2.out' },
-      })
+      // Start hidden
+      gsap.set(elements, { opacity: 0, y: 30 })
 
-      tl.to(avatarTextRef.current, { opacity: 1, y: 0 }, "<+0.1")
-      tl.to(headingRef.current, { opacity: 1, y: 0 }, "<+0.1")
-      tl.to(paragraphRef.current, { opacity: 1, y: 0 }, "<+0.1")
+      // Smooth staggered intro
+      gsap.to(elements, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        stagger: 0.15, // 150ms between each
+        delay: 0.35 // short pause after page load
+      })
     }, containerRef)
 
     return () => ctx.revert()
@@ -43,6 +40,7 @@ export default function HeroData() {
 
   return (
     <div ref={containerRef} className="flex flex-col items-center">
+      {/* Avatar + text */}
       <div ref={avatarTextRef} className="flex flex-row items-center gap-4 mb-4">
         <AvatarGroup />
         <div className="font-sf-impact flex flex-row items-center gap-2 text-sm">
@@ -54,13 +52,18 @@ export default function HeroData() {
         </div>
       </div>
 
+      {/* Heading */}
       <h1
         ref={headingRef}
         className="uppercase font-oswald text-6xl font-bold max-w-[720px] text-center leading-20 mb-4"
       >
-        The fastest way to source top-selling <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#DC9B39] to-[#FFC670] relative inline-block">jackets</span>
+        The fastest way to source top-selling{' '}
+        <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#DC9B39] to-[#FFC670] relative inline-block">
+          jackets
+        </span>
       </h1>
 
+      {/* Paragraph */}
       <p
         ref={paragraphRef}
         className="text-gray font-sf-impact max-w-[610px] text-center text-2xl mb-8"

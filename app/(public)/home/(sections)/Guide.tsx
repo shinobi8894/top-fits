@@ -12,12 +12,30 @@ export default function GuideSteps() {
 
     useEffect(() => {
         // ---------------------
+        // Main title fade-in animation
+        // ---------------------
+        gsap.fromTo(
+            '.guide-main-title',
+            { opacity: 0, y: 30 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '.guide-main-title',
+                    start: 'top 85%',
+                },
+            }
+        )
+
+        // ---------------------
         // Progress bar loop
         // ---------------------
         const bars = gsap.utils.toArray<HTMLElement>('.step-progress')
         const tl = gsap.timeline({ repeat: -1, defaults: { ease: 'power2.out' } })
 
-        gsap.set(bars, { width: '0%', opacity: 0 }) // initial state
+        gsap.set(bars, { width: '0%', opacity: 0 })
 
         bars.forEach((bar, index) => {
             tl.to(bar, {
@@ -30,73 +48,17 @@ export default function GuideSteps() {
         tl.to(bars, { width: '0%', opacity: 0, duration: 0 })
 
         // ---------------------
-        // Title animation
-        // ---------------------
-        gsap.fromTo(
-            '.guide-main-title',
-            { y: 50, opacity: 0 },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.guide-main-title',
-                    start: 'top 80%',
-                },
-            }
-        )
-
-        // ---------------------
-        // Card animation
+        // Animate each guide card
         // ---------------------
         gsap.fromTo(
             '.guide-card',
-            { opacity: 0, scale: 0.95 },
+            { opacity: 0, scale: 0.9, y: 40 },
             {
                 opacity: 1,
                 scale: 1,
-                duration: 0.8,
-                stagger: 0.2,
-                ease: 'power2.out',
-                scrollTrigger: {
-                    trigger: '.guide-card',
-                    start: 'top 85%',
-                },
-            }
-        )
-
-        // ---------------------
-        // Image animation
-        // ---------------------
-        gsap.fromTo(
-            '.guide-img',
-            { opacity: 0, y: 30, scale: 0.9 },
-            {
-                opacity: 1,
                 y: 0,
-                scale: 1,
-                duration: 1,
-                stagger: 0.2,
-                ease: 'power2.out',
-                scrollTrigger: {
-                    trigger: '.guide-card',
-                    start: 'top 85%',
-                },
-            }
-        )
-
-        // ---------------------
-        // Content animation
-        // ---------------------
-        gsap.fromTo(
-            ['.guide-title', '.guide-desc'],
-            { opacity: 0, x: -20 },
-            {
-                opacity: 1,
-                x: 0,
                 duration: 0.8,
-                stagger: 0.15,
+                stagger: 0.25,
                 ease: 'power2.out',
                 scrollTrigger: {
                     trigger: '.guide-card',
@@ -106,11 +68,10 @@ export default function GuideSteps() {
         )
     }, [])
 
-
-
     return (
         <section className='p-20 flex flex-row justify-center relative overflow-hidden'>
             <div className="w-full h-[720px] absolute -top-[30%] [background-image:linear-gradient(to_bottom,#FFB443_0%,#996C28_50%,#996C2800_100%)] opacity-25" />
+            <div className="w-full h-[720px] absolute -bottom-[30%] [background-image:linear-gradient(to_top,#FFB443_0%,#996C28_50%,#996C2800_100%)] opacity-25" />
 
             <div className='w-full max-w-[1920px] flex flex-col items-center'>
 
@@ -134,7 +95,7 @@ export default function GuideSteps() {
                 {/* Steps grid */}
                 <div className='grid grid-cols-2 gap-20 xl:grid-cols-3'>
                     {GUIDE_STEPS.map((item, idx) => (
-                        <div key={idx} className="guide-card relative group cursor-pointer bg-background overflow-hidden">
+                        <div key={idx} className="guide-card relative group cursor-pointer overflow-hidden">
                             <div className="font-sf-impact flex flex-col items-center z-20 relative">
                                 <Image src={item.img} alt={item.title} width={480} height={520} className='guide-img object-cover w-full h-full mb-14' />
                                 {/* Animated progress bar at bottom */}
