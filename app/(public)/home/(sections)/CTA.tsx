@@ -1,21 +1,92 @@
-import Image from 'next/image';
-import { useState } from 'react';
-import GradientButton from '@/components/custom/gradient-button';
-import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+'use client'
+
+import Image from 'next/image'
+import { useState, useEffect, useRef } from 'react'
+import GradientButton from '@/components/custom/gradient-button'
+import { ArrowRight } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function CTASection() {
-    const [ctaSrc, setCtaSrc] = useState('/assets/imgs/cta.png');
-    const [rightGraphicSrc, setRightGraphicSrc] = useState('/assets/imgs/right-graphic.png');
-    const [leftGraphicSrc, setLeftGraphicSrc] = useState('/assets/imgs/left-graphic.png');
+    const [ctaSrc, setCtaSrc] = useState('/assets/imgs/cta.png')
+    const [rightGraphicSrc, setRightGraphicSrc] = useState('/assets/imgs/right-graphic.png')
+    const [leftGraphicSrc, setLeftGraphicSrc] = useState('/assets/imgs/left-graphic.png')
+    const fallbackImg = '/assets/imgs/fallback.png'
 
-    const fallbackImg = '/assets/imgs/fallback.png'; // <- make sure this exists
+    const sectionRef = useRef(null)
+    const leftContentRef = useRef(null)
+    const mainImageRef = useRef(null)
+    const rightGraphicRef = useRef(null)
+    const leftGraphicRef = useRef(null)
+
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            gsap.from(leftContentRef.current, {
+                x: -100,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse',
+                },
+            })
+
+            gsap.from(mainImageRef.current, {
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                delay: 0.2,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse',
+                },
+            })
+
+            gsap.from(rightGraphicRef.current, {
+                x: 100,
+                opacity: 0,
+                duration: 1,
+                delay: 0.4,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse',
+                },
+            })
+
+            gsap.from(leftGraphicRef.current, {
+                x: -100,
+                opacity: 0,
+                duration: 1,
+                delay: 0.4,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse',
+                },
+            })
+        }, sectionRef)
+
+        return () => ctx.revert()
+    }, [])
 
     return (
-        <section className="p-20 relative flex justify-center bg-gradient-to-r from-black to-[#11100E]">
+        <section
+            ref={sectionRef}
+            className="p-20 relative flex justify-center bg-gradient-to-r from-black to-[#11100E]"
+        >
             <div className="relative z-10 flex flex-row w-full max-w-[1920px] bg-primary rounded-[45px] overflow-hidden items-center gap-20 px-20">
                 {/* Left content */}
-                <div className="z-20 max-w-[550px]">
+                <div ref={leftContentRef} className="z-20 max-w-[550px]">
                     <span className="font-sf-impact">.GG/TOPFITS</span>
                     <h2 className="font-sf-impact text-4xl font-semibold mb-3">
                         Sourcing made simple, strategic, and successful.
@@ -37,7 +108,7 @@ export default function CTASection() {
                 </div>
 
                 {/* Main Image */}
-                <div className="pt-20 w-full z-20">
+                <div className="pt-20 w-full z-20" ref={mainImageRef}>
                     <Image
                         src={ctaSrc}
                         alt="cta"
@@ -49,6 +120,7 @@ export default function CTASection() {
 
                 {/* Decorative graphics */}
                 <Image
+                    ref={rightGraphicRef}
                     src={rightGraphicSrc}
                     alt="graphic"
                     width={370}
@@ -57,6 +129,7 @@ export default function CTASection() {
                     onError={() => setRightGraphicSrc(fallbackImg)}
                 />
                 <Image
+                    ref={leftGraphicRef}
                     src={leftGraphicSrc}
                     alt="graphic"
                     width={370}
@@ -69,5 +142,5 @@ export default function CTASection() {
                 <div className="absolute left-0 right-0 top-0 z-10 bg-black opacity-40 w-full bottom-0" />
             </div>
         </section>
-    );
+    )
 }
