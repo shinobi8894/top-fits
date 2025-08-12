@@ -84,7 +84,7 @@ export default function GoodbyeSlider() {
             </div>
 
             {/* Top fade */}
-            <div className="absolute top-0 h-[400px] w-full bg-gradient-to-b from-black to-black/0 z-20" />
+            <div className="absolute top-0 sm:block hidden h-[400px] w-full bg-gradient-to-b from-black to-black/0 z-20" />
             {/* Bottom fade */}
             <div className="absolute bottom-0 h-[400px] w-full bg-gradient-to-t from-black to-black/0 z-20" />
             {/* Right fade */}
