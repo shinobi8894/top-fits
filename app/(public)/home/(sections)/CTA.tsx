@@ -100,7 +100,7 @@ export default function CTASection() {
                             <span>Register on TopFits</span>
                             <ArrowRight className="-rotate-45" />
                         </GradientButton>
-                        <Button className="border border-primary w-full border-primary bg-black rounded-full font-sf-impact cursor-pointer h-button">
+                        <Button className="border transition-all duration-500 border-primary w-full border-primary bg-black rounded-full font-sf-impact cursor-pointer h-button">
                             <span>Join Discord</span>
                             <ArrowRight className="-rotate-45" />
                         </Button>

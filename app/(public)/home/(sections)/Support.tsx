@@ -101,7 +101,7 @@ export default function SupportSection() {
 
                     {/* Buttons */}
                     <div ref={btnGroupRef} className="grid grid-cols-1 sm:grid-cols-2 items-center gap-4 w-full">
-                        <Button className="!h-[60px] cursor-pointer flex-1 w-full sm:w-auto text-primary hover:!text-white bg-transparent border border-primary rounded-full font-sf-impact">
+                        <Button className="!h-[60px] transition-all duration-500 cursor-pointer flex-1 w-full sm:w-auto text-primary hover:!text-white bg-transparent border border-primary rounded-full font-sf-impact">
                             <span className="text-white font-semibold">View FAQ</span>
                             <ArrowRight />
                         </Button>

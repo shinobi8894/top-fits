@@ -93,7 +93,7 @@ export default function AnimatedSwiper() {
                                         <span>🛒 Purchase for $1.00</span>
                                     </GradientButton>
                                     <Button
-                                        className="w-full cursor-pointer bg-[#1E1E1E] h-button border border-[#323232] rounded-[12px] font-sf-impact inner-shadow-2"
+                                        className="w-full transition-all duration-500 cursor-pointer bg-[#1E1E1E] h-button border border-[#323232] rounded-[12px] font-sf-impact inner-shadow-2"
                                     >
                                         <span>View details</span>
                                     </Button>

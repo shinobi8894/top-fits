@@ -27,7 +27,7 @@ export default function CTAButtons() {
     }, [])
 
     return (
-        <div ref={containerRef} className="w-full flex flex-col items-center">
+        <div ref={containerRef} className="w-full flex relative z-20 flex-col items-center">
             <div className='w-full flex justify-center'>
                 <div className='relative w-full max-w-[500px]'>
                     <GradientButton
@@ -48,13 +48,13 @@ export default function CTAButtons() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 w-full max-w-[500px] gap-3">
                 <Button
-                    className="!h-[60px] w-full cursor-pointer text-primary hover:!text-white flex bg-transparent border border-primary rounded-full h-button font-sf-impact"
+                    className="!h-[60px] w-full transition-all duration-500 bg-black cursor-pointer text-primary hover:!text-white flex border border-primary rounded-full h-button font-sf-impact"
                 >
                     <span className="text-white font-semibold">To SpreadSheets</span>
                     <ArrowRight />
                 </Button>
                 <Button
-                    className="!h-[60px] w-full cursor-pointer flex bg-transparent border border-primary rounded-full h-button font-sf-impact text-primary hover:!text-white"
+                    className="!h-[60px] transition-all duration-500 w-full cursor-pointer flex bg-black border border-primary rounded-full h-button font-sf-impact text-primary hover:!text-white"
                 >
                     <span className="text-white font-semibold">Join Discord</span>
                     <ArrowRight />

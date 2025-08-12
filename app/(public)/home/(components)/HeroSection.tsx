@@ -39,7 +39,7 @@ export default function HeroData() {
   }, [])
 
   return (
-    <div ref={containerRef} className="flex flex-col items-center px-4">
+    <div ref={containerRef} className="flex flex-col items-center relative z-20 px-4">
       {/* Avatar + text */}
       <div
         ref={avatarTextRef}
