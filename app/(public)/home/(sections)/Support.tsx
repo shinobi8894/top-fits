@@ -59,15 +59,16 @@ export default function SupportSection() {
     }, [])
 
     return (
-        <section className="w-full py-20 bg-gradient-to-b from-[#0C0C0C] to-[#010101] flex justify-center px-6 lg:px-20 mb-20">
-            <div className="flex flex-col lg:flex-row items-center justify-between max-w-[1920px] gap-10 w-full">
+        <section className="w-full py-20 bg-gradient-to-b from-[#0C0C0C] to-[#010101] flex justify-center px-4 mb-20">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center w-full justify-between max-w-[1920px] gap-10 w-full">
                 {/* Left Content */}
                 <div className="flex flex-col max-w-[670px] w-full relative">
                     <h1
                         ref={titleRef}
-                        className="uppercase text-white font-oswald text-5xl lg:text-6xl font-bold leading-[1.2] mb-8"
+                        className="uppercase text-white font-oswald text-5xl text-[clamp(1.75rem,4vw,3.75rem)] /* 28px → 60px */
+          leading-[1.2] font-bold mb-8"
                     >
-                        Customer support, right when{' '}
+                        Customer support, <br /> right when{' '}
                         <span
                             ref={gradientRef}
                             className="relative text-transparent bg-clip-text bg-gradient-to-b from-[#DC9B39] to-[#FFC670] inline-block"
@@ -75,11 +76,11 @@ export default function SupportSection() {
                             you need it.
                             <span className="absolute -bottom-6 left-0 w-full">
                                 <svg
-                                    width="312"
-                                    height="28"
+                                    ref={svgPathRef?.current ? undefined : undefined} // keep your ref usage unchanged
                                     viewBox="0 0 312 28"
-                                    fill="none"
+                                    preserveAspectRatio="none"
                                     xmlns="http://www.w3.org/2000/svg"
+                                    className="w-full h-auto"
                                 >
                                     <path
                                         ref={svgPathRef}
@@ -90,15 +91,16 @@ export default function SupportSection() {
                                     />
                                 </svg>
                             </span>
+
                         </span>
                     </h1>
 
-                    <p ref={descRef} className="text-gray mb-8 text-2xl">
+                    <p ref={descRef} className="text-gray mb-8 text-[clamp(1rem,2vw,1.5rem)] /* 16px → 24px */">
                         We provide dedicated customer support exactly when you need it most, ensuring every query, question, or concern is addressed promptly and thoroughly. Our team is committed to delivering clear, helpful solutions, so you’re never left waiting.
                     </p>
 
                     {/* Buttons */}
-                    <div ref={btnGroupRef} className="flex flex-col sm:flex-row items-center gap-4 w-full">
+                    <div ref={btnGroupRef} className="grid grid-cols-1 sm:grid-cols-2 items-center gap-4 w-full">
                         <Button className="!h-[60px] cursor-pointer flex-1 w-full sm:w-auto text-primary hover:!text-white bg-transparent border border-primary rounded-full font-sf-impact">
                             <span className="text-white font-semibold">View FAQ</span>
                             <ArrowRight />

@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import CTASection from './(sections)/CTA'
 import GoodbyeSlider from './(sections)/Goodbye'
+import WhyOurLinks from './(sections)/Why'
 
 export default function HomePage() {
     return (
@@ -22,8 +23,9 @@ export default function HomePage() {
             <ClientSection />
             <StepSection />
             <GuideSteps />
-            <CTASection/>
-            <GoodbyeSlider/>
+            <WhyOurLinks/>
+            <CTASection />
+            <GoodbyeSlider />
         </main>
     )
 }

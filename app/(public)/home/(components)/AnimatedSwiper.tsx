@@ -15,12 +15,14 @@ const TOTAL_SLIDES = 9
 export default function AnimatedSwiper() {
     const [activeIndex, setActiveIndex] = useState(0)
     const [visibleSlides, setVisibleSlides] = useState(5)
+    const [isBelow1024, setisBelow1024] = useState(false)
     const swiperRef = useRef<any>(null)
 
     useEffect(() => {
         const updateVisibleSlides = () => {
             const width = window.innerWidth
-            setVisibleSlides(width < 1440 ? 3 : 5)
+            setVisibleSlides(width < 1800 ? (width < 1024 ? (width < 768 ? 1 : 2) : 3) : 5)
+            setisBelow1024(width < 1024)
         }
 
         updateVisibleSlides()
@@ -28,15 +30,15 @@ export default function AnimatedSwiper() {
         return () => window.removeEventListener('resize', updateVisibleSlides)
     }, [])
 
-    // Determine if a slide is centered (middle of visible set)
     const isCentered = (index: number) => {
+        if (isBelow1024) return false // disable scaling on small screens
         const middle = Math.floor(visibleSlides / 2)
         const offset = (index - activeIndex + TOTAL_SLIDES) % TOTAL_SLIDES
         return offset === middle
     }
 
-    // Determine if a slide is at edge (leftmost or rightmost)
     const isDimmed = (index: number) => {
+        if (isBelow1024) return false // disable dimming on small screens
         const offset = (index - activeIndex + TOTAL_SLIDES) % TOTAL_SLIDES
         return offset === 0 || offset === visibleSlides - 1
     }
@@ -53,8 +55,10 @@ export default function AnimatedSwiper() {
                 disableOnInteraction: false,
             }}
             breakpoints={{
-                0: { slidesPerView: 3 },
-                1440: { slidesPerView: 5 },
+                0: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+                1800: { slidesPerView: 5 },
             }}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
             onInit={(swiper) => setActiveIndex(swiper.realIndex)}
@@ -68,9 +72,9 @@ export default function AnimatedSwiper() {
                     <SwiperSlide key={index}>
                         <div className={`py-10 ${centered ? 'px-3' : ''}`}>
                             <div
-                                className={`bg-gradient-to-b from-[#1D1D1D] to-[#161616] rounded-[32px] p-7 transition-all duration-300 ease-in-out 
-                  ${centered ? 'scale-110' : 'scale-100'}
-                  ${dimmed ? 'opacity-50' : 'opacity-100'}`}
+                                className={`bg-gradient-to-b from-[#1D1D1D] to-[#161616] rounded-[32px] p-7 transition-all duration-300 ease-in-out
+                                ${centered ? 'scale-110' : 'scale-100'}
+                                ${dimmed ? 'opacity-50' : 'opacity-100'}`}
                             >
                                 <div className="bg-gradient-to-b flex flex-col items-center from-[#3D3D3D] to-[#161616] rounded-[32px] p-7 inner-shadow-2">
                                     <div className='w-[180px] h-[220px] mb-5'>

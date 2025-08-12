@@ -82,11 +82,11 @@ export default function CTASection() {
     return (
         <section
             ref={sectionRef}
-            className="p-20 relative flex justify-center bg-gradient-to-r from-black to-[#11100E]"
+            className="py-20 px-4 relative flex justify-center bg-gradient-to-r from-black to-[#11100E]"
         >
-            <div className="relative z-10 flex flex-row w-full max-w-[1920px] bg-primary rounded-[45px] overflow-hidden items-center gap-20 px-20">
+            <div className="relative z-10 flex flex-row w-full justify-between max-w-[1920px] bg-primary rounded-[45px] overflow-hidden items-end gap-20 px-5 xl:px-20">
                 {/* Left content */}
-                <div ref={leftContentRef} className="z-20 max-w-[550px]">
+                <div ref={leftContentRef} className="z-20 max-w-[550px] py-20">
                     <span className="font-sf-impact">.GG/TOPFITS</span>
                     <h2 className="font-sf-impact text-4xl font-semibold mb-3">
                         Sourcing made simple, strategic, and successful.
@@ -108,7 +108,7 @@ export default function CTASection() {
                 </div>
 
                 {/* Main Image */}
-                <div className="pt-20 w-full z-20" ref={mainImageRef}>
+                <div className="pt-20 z-20 xl:block hidden" ref={mainImageRef}>
                     <Image
                         src={ctaSrc}
                         alt="cta"

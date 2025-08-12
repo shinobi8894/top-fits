@@ -55,9 +55,9 @@ export default function ClientSection() {
   return (
     <section
       ref={sectionRef}
-      className="p-20 bg-gradient-to-b from-[#0C0C0C] to-[#101010] flex flex-row justify-center"
+      className="py-20 px-4 bg-gradient-to-b from-[#0C0C0C] to-[#101010] flex flex-row justify-center"
     >
-      <div className="grid grid-cols-2 gap-7 xl:grid-cols-3 max-w-[1920px]">
+      <div className="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3 max-w-[1920px]">
         {TESTIMONIALS_DATA.map((testimonial, index) => (
           <TestimonialCard key={index} {...testimonial} />
         ))}

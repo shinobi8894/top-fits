@@ -69,7 +69,7 @@ export default function GuideSteps() {
     }, [])
 
     return (
-        <section className='p-20 flex flex-row justify-center relative overflow-hidden'>
+        <section className='py-20 px-4 flex flex-row justify-center relative overflow-hidden'>
             <div className="w-full h-[720px] absolute -top-[30%] [background-image:linear-gradient(to_bottom,#FFB443_0%,#996C28_50%,#996C2800_100%)] opacity-25" />
             <div className="w-full h-[720px] absolute -bottom-[30%] [background-image:linear-gradient(to_top,#FFB443_0%,#996C28_50%,#996C2800_100%)] opacity-25" />
 
@@ -77,23 +77,26 @@ export default function GuideSteps() {
 
                 {/* Decorative title wrapper */}
                 <div className='relative guide-main-title'>
-                    <svg className='absolute -left-[20px] bottom-[60px] guide-svg' width="147" height="146" viewBox="0 0 147 146" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg className='absolute lg:block hidden -left-4 bottom-14 w-[80px] sm:w-[100px] md:w-[120px] lg:w-[147px] guide-svg' viewBox="0 0 147 146" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M145.912 131.427C145.912 131.427 111.401 144.393 63.001 144.628C14.6012 144.863 -57.2053 46.1121 85.2864 1.25326" stroke="#E7A84A" strokeWidth="2.59201" strokeDasharray="9.69 9.69" />
                     </svg>
-                    <svg className='absolute right-[60px] -top-[20%] guide-svg' width="159" height="152" viewBox="0 0 159 152" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                    <svg className='absolute lg:block hidden right-[15px] sm:right-[40px] md:right-[60px] -top-[15%] sm:-top-[18%] md:-top-[20%] w-[100px] sm:w-[130px] md:w-[150px] lg:w-[159px] guide-svg' viewBox="0 0 159 152" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 56.3013C22.0044 57.9562 27.6176 47.2352 64.0133 13.5287C100.409 -20.1779 206.554 18.3812 130 150.976" stroke="#E7A84A" strokeWidth="2.65658" strokeDasharray="9.93 9.93" />
                     </svg>
-                    <svg className='absolute bottom-[60px] right-[120px] guide-svg' width="29" height="31" viewBox="0 0 29 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                    <svg className='absolute lg:block hidden bottom-[40px] sm:bottom-[50px] md:bottom-[60px] right-[60px] sm:right-[90px] md:right-[120px] w-[20px] sm:w-[24px] md:w-[28px] lg:w-[29px] guide-svg' viewBox="0 0 29 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.580618 24.7549C0.371538 25.5565 0.851877 26.3758 1.65349 26.5849L14.7165 29.9921C15.5181 30.2012 16.3374 29.7208 16.5465 28.9192C16.7556 28.1176 16.2752 27.2983 15.4736 27.0892L3.86207 24.0606L6.89066 12.4491C7.09974 11.6475 6.6194 10.8281 5.81779 10.6191C5.01618 10.41 4.19686 10.8903 3.98778 11.6919L0.580618 24.7549ZM2.03206 25.1335L2.79069 26.4275C4.10429 25.6574 5.37141 24.8567 6.59136 24.034L5.75272 22.7904L4.91408 21.5467C3.74434 22.3355 2.53054 23.1025 1.27343 23.8395L2.03206 25.1335ZM12.7348 17.4462L13.7146 18.582C16.1387 16.4908 18.2893 14.3759 20.1573 12.3521L19.055 11.3348L17.9528 10.3174C16.1561 12.2639 14.0867 14.2989 11.755 16.3105L12.7348 17.4462ZM24.6114 4.52293L25.8355 5.38999C26.8969 3.89161 27.7182 2.57686 28.285 1.53652L26.9679 0.818798L25.6508 0.101074C25.152 1.01629 24.3972 2.23043 23.3874 3.65588L24.6114 4.52293Z" fill="#E7A84A" />
                     </svg>
 
-                    <h1 className="uppercase font-oswald text-6xl font-bold max-w-[550px] text-center leading-20 mb-20">
+                    <h1 className="uppercase font-oswald text-[28px] sm:text-[36px] md:text-[48px] lg:text-[60px] leading-[1.2] font-bold max-w-[550px] text-center mb-20">
                         YOUR GUIDE TO NAVIGATING <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#DC9B39] to-[#FFC670] relative inline-block">TOPFITS:</span>
                     </h1>
                 </div>
 
+
                 {/* Steps grid */}
-                <div className='grid grid-cols-2 gap-20 xl:grid-cols-3'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-20 xl:grid-cols-3 max-w-[1920px] w-full'>
                     {GUIDE_STEPS.map((item, idx) => (
                         <div key={idx} className="guide-card relative group cursor-pointer overflow-hidden">
                             <div className="font-sf-impact flex flex-col items-center z-20 relative">

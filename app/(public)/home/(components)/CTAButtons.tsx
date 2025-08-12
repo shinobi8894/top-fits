@@ -46,15 +46,15 @@ export default function CTAButtons() {
 
             </div>
 
-            <div className="flex flex-row w-full max-w-[500px] gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 w-full max-w-[500px] gap-3">
                 <Button
-                    className="!h-[60px] cursor-pointer text-primary hover:!text-white flex bg-transparent border border-primary rounded-full h-button font-sf-impact flex-1"
+                    className="!h-[60px] w-full cursor-pointer text-primary hover:!text-white flex bg-transparent border border-primary rounded-full h-button font-sf-impact"
                 >
                     <span className="text-white font-semibold">To SpreadSheets</span>
                     <ArrowRight />
                 </Button>
                 <Button
-                    className="!h-[60px] cursor-pointer flex bg-transparent border border-primary rounded-full h-button font-sf-impact flex-1 text-primary hover:!text-white"
+                    className="!h-[60px] w-full cursor-pointer flex bg-transparent border border-primary rounded-full h-button font-sf-impact text-primary hover:!text-white"
                 >
                     <span className="text-white font-semibold">Join Discord</span>
                     <ArrowRight />

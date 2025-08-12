@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function ActionButtons() {
     return (
-        <div className="flex flex-row items-center gap-3">
+        <div className="flex flex-row items-center gap-3 md:flex hidden">
             <GradientButton className="inner-shadow">
                 <Sun />
             </GradientButton>

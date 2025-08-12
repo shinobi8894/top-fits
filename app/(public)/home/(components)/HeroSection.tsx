@@ -30,8 +30,8 @@ export default function HeroData() {
         y: 0,
         duration: 0.8,
         ease: 'power2.out',
-        stagger: 0.15, // 150ms between each
-        delay: 0.35 // short pause after page load
+        stagger: 0.15,
+        delay: 0.35
       })
     }, containerRef)
 
@@ -39,12 +39,20 @@ export default function HeroData() {
   }, [])
 
   return (
-    <div ref={containerRef} className="flex flex-col items-center">
+    <div ref={containerRef} className="flex flex-col items-center px-4">
       {/* Avatar + text */}
-      <div ref={avatarTextRef} className="flex flex-row items-center gap-4 mb-4">
+      <div
+        ref={avatarTextRef}
+        className="flex flex-col items-center gap-4 mb-4 md:flex-row"
+      >
         <AvatarGroup />
-        <div className="font-sf-impact flex flex-row items-center gap-2 text-sm">
-          <p className="text-gray font-semibold">
+        <div
+          className="
+            font-sf-impact flex flex-row items-center gap-2
+            text-[clamp(0.75rem,1.5vw,0.875rem)] /* 12px → 14px */
+          "
+        >
+          <p className="text-gray font-semibold text-center">
             Join 250+ Satisfied Customers.
             <span className="text-primary"> Read more</span>
           </p>
@@ -55,7 +63,11 @@ export default function HeroData() {
       {/* Heading */}
       <h1
         ref={headingRef}
-        className="uppercase font-oswald text-6xl font-bold max-w-[720px] text-center leading-20 mb-4"
+        className="
+          uppercase font-oswald font-bold max-w-[720px] text-center
+          text-[clamp(1.75rem,4vw,3.75rem)] /* 28px → 60px */
+          leading-[1.2] mb-4
+        "
       >
         The fastest way to source top-selling{' '}
         <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#DC9B39] to-[#FFC670] relative inline-block">
@@ -66,9 +78,14 @@ export default function HeroData() {
       {/* Paragraph */}
       <p
         ref={paragraphRef}
-        className="text-gray font-sf-impact max-w-[610px] text-center text-2xl mb-8"
+        className="
+          text-gray font-sf-impact max-w-[610px] text-center
+          text-[clamp(1rem,2vw,1.5rem)] /* 16px → 24px */
+          mb-8
+        "
       >
-        TopFits helps eCommerce businesses discover, source, and scale with high-converting fashion products
+        TopFits helps eCommerce businesses discover, source, and scale with
+        high-converting fashion products
       </p>
     </div>
   )

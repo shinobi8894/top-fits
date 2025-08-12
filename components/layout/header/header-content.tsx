@@ -1,6 +1,7 @@
 import Logo from "@/components/custom/logo";
 import NavigationMenu from "./navigation-menu";
 import ActionButtons from "./action-buttons";
+import { Menu } from "lucide-react";
 
 export default function HeaderContent() {
     return (
@@ -10,6 +11,7 @@ export default function HeaderContent() {
                 <NavigationMenu />
             </div>
             <ActionButtons />
+            <Menu className="md:hidden block" />
         </div>
     );
 }

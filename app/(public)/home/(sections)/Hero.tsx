@@ -6,13 +6,13 @@ import HeroData from "../(components)/HeroSection";
 export default function HeroSection() {
     return (
         <section className='overflow-hidden relative z-10'>
-            <div className="flex flex-col items-center w-full z-10 relative mb-20">
+            <div className="flex flex-col items-center w-full z-10 relative mb-20 px-4">
                 <HeroData />
                 <CTAButtons />
                 <FloatingAvatarGroup />
             </div>
             <AnimatedSwiper />
-            <div className='absolute top-0 w-full'>
+            <div className='absolute bottom-0 w-full'>
                 <svg className="w-full" viewBox="0 0 1920 1331" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_f_1_224)">
                         <ellipse cx="951" cy="1790.5" rx="1022" ry="818.5" fill="#FFA13F" fillOpacity="0.5" />

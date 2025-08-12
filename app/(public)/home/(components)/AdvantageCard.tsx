@@ -23,7 +23,7 @@ export default function AdvantageCard({
                 <div className='w-full max-w-[410px] h-[370px] flex justify-center items-center'>
                     <Image src={imgSrc} alt={imgAlt} width={410} height={350} />
                 </div>
-                <h2 className="text-3xl font-bold mb-4">
+                <h2 className="text-3xl font-bold mb-4 text-center">
                     {title} <span className="text-primary">{highlight}</span>
                 </h2>
                 <p className="text-gray max-w-[260px] text-center">{description}</p>

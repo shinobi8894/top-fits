@@ -52,8 +52,8 @@ export default function StepSection() {
     }, [])
 
     return (
-        <section className="p-20 bg-gradient-to-b flex flex-row justify-center from-[#000000] to-[#101010]">
-            <div className="w-full max-w-[1920px] grid grid-cols-4 stats-grid">
+        <section className="py-20 px-4 bg-gradient-to-b flex flex-row justify-center from-[#000000] to-[#101010]">
+            <div className="w-full max-w-[1920px] grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 stats-grid">
                 {STEP_DATA.map((card, index) => (
                     <StatCard key={index} {...card} />
                 ))}

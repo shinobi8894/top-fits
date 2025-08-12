@@ -39,7 +39,7 @@ export default function AdvantageSection() {
             gsap.fromTo(
                 cardsRef.current,
                 {
-                    y: -50,
+                    y: 50,
                     opacity: 0,
                 },
                 {
@@ -58,15 +58,16 @@ export default function AdvantageSection() {
     }, []);
 
     return (
-        <section className="w-full flex flex-col items-center justify-center !bg-background relative z-20 pt-20">
+        <section className="w-full flex flex-col items-center justify-center !bg-background relative z-20 px-4 pt-20">
             <h1
                 ref={titleRef}
-                className="uppercase font-oswald text-6xl font-bold max-w-[650px] text-center leading-20 mb-4 opacity-0"
+                className="uppercase font-oswald text-[clamp(1.75rem,4vw,3.75rem)] /* 28px → 60px */
+          leading-[1.2] mb-4 font-bold max-w-[650px] text-center mb-4 opacity-0"
             >
                 TRENDING PRODUCTS HAND PICKED <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#DC9B39] to-[#FFC670] relative inline-block">FOR YOU</span>
             </h1>
 
-            <div className="grid grid-cols-2 gap-8 px-20 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="grid w-full max-w-[1920px] grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {ADVANTAGE_CARDS_DATA.map((card, index) => (
                     <div
                         key={index}
