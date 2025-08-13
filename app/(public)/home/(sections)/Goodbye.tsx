@@ -49,7 +49,11 @@ export default function GoodbyeSlider() {
                         direction="vertical"
                         loop
                         slidesPerView={slidesPerView}
-                        autoplay={{ delay: 2000, disableOnInteraction: false }}
+                        speed={2000} // smooth transition
+                        autoplay={{
+                            delay: 3500, // slower slide change
+                            disableOnInteraction: false
+                        }}
                         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                         onSwiper={(swiper) => setActiveIndex(swiper.realIndex)}
                         allowTouchMove={false}
